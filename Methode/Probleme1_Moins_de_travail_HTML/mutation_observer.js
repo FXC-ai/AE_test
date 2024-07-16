@@ -8,11 +8,13 @@ var config = { attributes: true, childList: true };
 // Fonction callback à éxécuter quand une mutation est observée
 var callback = function (mutationsList) {
   for (var mutation of mutationsList) {
-    if (mutation.type == "childList") {
-      console.log("Un noeud enfant a été ajouté ou supprimé.");
-    } else if (mutation.type == "attributes") {
-      console.log("L'attribut '" + mutation.attributeName + "' a été modifié.");
-    }
+	if (mutation.type == "childList") {
+		mutation.addEventListener('click', function (event) {console.log(event.target.textContent);});
+		console.log("Un noeud enfant a été ajouté ou supprimé.");
+
+	} else if (mutation.type == "attributes") {
+		console.log("L'attribut '" + mutation.attributeName + "' a été modifié.");
+	}
   }
 };
 
@@ -23,12 +25,13 @@ var observer = new MutationObserver(callback);
 observer.observe(targetNode, config);
 
 
-const para = document.createElement("p");
-const node = document.createTextNode("This is new.");
-para.appendChild(node);
+const new_p = document.createElement("p");
+const text = document.createTextNode("Voila un nouveau p");
+new_p.appendChild(text);
 
-targetNode.appendChild(para);
+targetNode.appendChild(new_p);
 
 
 // L'observation peut être arrêtée par la suite
+// il faut ajouter un timer
 // observer.disconnect();
