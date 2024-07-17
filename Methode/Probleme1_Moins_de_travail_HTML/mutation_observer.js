@@ -15,7 +15,7 @@ var callback = function (mutationsList, observer)
 			for (let child of mutation.addedNodes)
 			{
 				child.addEventListener('click', function (event) {console.log(event.target.textContent);});
-				console.log("Un noeud enfant a été ajouté ou supprimé." + mutation);
+				console.log("Un noeud enfant a été ajouté ou supprimé.");
 			}
 		}
 
@@ -38,6 +38,6 @@ const new_p2 = document.createElement("p");
 const text2 = document.createTextNode("Cliquez sur moi en regardant la console");
 new_p2.appendChild(text2);
 targetNode.appendChild(new_p2);
+
 // L'observation peut être arrêtée par la suite
-// il faut ajouter un timer
 // observer.disconnect();

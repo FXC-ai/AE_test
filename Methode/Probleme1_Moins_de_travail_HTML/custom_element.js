@@ -4,7 +4,7 @@ class MyOwnP extends HTMLParagraphElement
 
 	connectedCallback()
 	{
-		console.log("Custom p added to page.");
+		console.log("P custom ajouté à la page.");
 		this.addEventListener('click', this.handleClick);
 	}
 
