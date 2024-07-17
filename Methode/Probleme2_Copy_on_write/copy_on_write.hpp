@@ -1,21 +1,24 @@
 #ifndef COPY_ON_WRITE_HPP
 # define COPY_ON_WRITE_HPP
 
+
+template <clas T>
 class Copy_on_write
 {
 
-	private :
-		std::string datas;
-
 	public :
-		Copy_on_write();
-		Copy_on_write& operator=(Copy_on_write const &rhs);
-		Copy_on_write(Copy_on_write const &src);
-		~Copy_on_write();
+		std::shared_ptr<T> ptr_read_only;
 
-		std::string getDatas() const;
-		void setDatas(std::string datas);
+		Copy_on_write(T* t)
+
+	private :
+		std::shared_ptr<T> ptr_copy;
+
+
+
+
 
 }
 
 #endif
+
