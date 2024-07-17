@@ -6,11 +6,12 @@ class Copy_on_write
 {
 
 	private :
-		std::shared_ptr<T> ptr;
+		std::shared_ptr<T> _ptr;
+		void create_new_allocation();
 
 	public :
-		Copy_on_write(T* t);
-		Copy_on_write(const std::shared_ptr& ref_ptr);
+		Copy_on_write(T* ptr);
+		Copy_on_write(const std::shared_ptr<T>& ref_ptr);
 
 		const T& operator*() const;
 		T& operator*();
@@ -20,39 +21,46 @@ class Copy_on_write
 
 };
 
+template <class T>
+Copy_on_write<T>::Copy_on_write (T* ptr) : _ptr(ptr) {}
+
+template <class T>
+const T& Copy_on_write<T>::operator*() const
+{
+	return *(this->_ptr);
+
+}
+
 int main()
 {
 
-	std::shared_ptr<int> test(new int(42));
+	int *test = new int(4);
+
+	Copy_on_write<int> obj_cp_on_wr(test);
+
+	std::cout << *obj_cp_on_wr << std::endl;
+
+
+	// std::shared_ptr<int> test(new int(42));
 
 	// std::cout << test << " " << *test << std::endl;
+	// std::cout << test.unique() << std::endl;
 
 
-	std::shared_ptr<int> test1;
+	// std::shared_ptr<int> test1;
 
-	test1=test;
+	// test1=test;
 
-	std::cout << test << " " << *test << std::endl;
-	std::cout << test1.get() << " " << *test1 << std::endl;
-	std::cout << test.use_count() << std::endl;
-	std::cout << test1.use_count() << std::endl;
-	std::cout << test1.unique() << std::endl;
+	// std::shared_ptr<int> test2;
 
+	// test2=test;
 
-	// test = new int(42);
-
-	// std::string x("Hello");
-
-	// std::string &y = x;
-
-	// std::cout << &x << " " << &y << std::endl;
-
-	// y = "sspoipoi";
-
-	// std::cout << x << " " << y << std::endl;
+	// std::cout << test << " " << *test << std::endl;
+	// std::cout << test1.get() << " " << *test1 << std::endl;
+	// std::cout << test.use_count() << std::endl;
+	// std::cout << test1.use_count() << std::endl;
+	// std::cout << test1.unique() << std::endl;
 
 
 	return 1;	
 }
-
-// y += ", World!";
