@@ -458,3 +458,11 @@ Voici 2 optimisations possibles :
 - Eviter une allocation dynamique si les données sont de taille suffisament petite. Pour cela il faudrait ajouter un attribut privé `small_size_data[MAX_SIZE]` de type `T` et l’initialiser si la taille des datas ne dépasse pas `MAX_SIZE`.
 
 ### Sources
+
+https://www.notion.so/Atelier-Eveil-Test-Technique-ab1ed61d735e46e6b83ce08589f69a7c?source=copy_link#19ddf010593a4cbaaa5d4b56d336fe21
+
+https://www.notion.so/Atelier-Eveil-Test-Technique-ab1ed61d735e46e6b83ce08589f69a7c?source=copy_link#2a001ef27f554795b5cca31625cf6865
+
+https://www.notion.so/Atelier-Eveil-Test-Technique-ab1ed61d735e46e6b83ce08589f69a7c?source=copy_link#c73c100db1f449f08af4dd7062e577f6
+
+https://www.notion.so/Atelier-Eveil-Test-Technique-ab1ed61d735e46e6b83ce08589f69a7c?source=copy_link#eef5f29223f44125a0904b857ea91dea
