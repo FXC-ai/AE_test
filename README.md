@@ -1,6 +1,6 @@
 # Test Technique
 
-Ceci est le premier test technique que j'ai effectué dans le but de décrocher ma prmière mission entant que développeur.
+Ceci est le premier test technique que j'ai effectué dans le but de décrocher ma première mission entant que développeur.
 
 # Test 1: Javascript
 
